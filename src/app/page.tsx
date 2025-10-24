@@ -1,150 +1,124 @@
-import React from 'react';
-import { Grid, Typography, Button, TextField, Box } from '@mui/material';
+"use client";
+import React, { useState } from "react";
+import Image from "next/image";
+import "./page.css";
 
-export default function TwoColumnLayout() {
+// Type definition for destination data
+interface DestinationData {
+  name: string;
+  description: string;
+  distance: string;
+  time: string;
+  image: string;
+}
+
+export default function Destination() {
+  const [planet, setPlanet] = useState<keyof typeof destinations>("moon");
+
+  const destinations: Record<string, DestinationData> = {
+    moon: {
+      name: "MOON",
+      description:
+        "See our planet as you’ve never seen it before. A perfect relaxing trip away to help regain perspective and come back refreshed. While you’re there, take in some history by visiting the Luna 2 and Apollo 11 landing sites.",
+      distance: "384,400 KM",
+      time: "3 DAYS",
+      image: "/destination/image-moon.png",
+    },
+    mars: {
+      name: "MARS",
+      description:
+        "Don’t forget to pack your hiking boots. You’ll need them to tackle Olympus Mons, the tallest planetary mountain in our solar system. It’s two and a half times the size of Everest!",
+      distance: "225 MIL. KM",
+      time: "9 MONTHS",
+      image: "/destination/image-mars.png",
+    },
+    europa: {
+      name: "EUROPA",
+      description:
+        "The smallest of the four Galilean moons orbiting Jupiter, Europa is a winter lover’s dream. With its icy surface, it’s perfect for a little ice skating and exploration.",
+      distance: "628 MIL. KM",
+      time: "3 YEARS",
+      image: "/destination/image-europa.png",
+    },
+    titan: {
+      name: "TITAN",
+      description:
+        "The only moon known to have a dense atmosphere other than Earth, Titan is a home away from home—just a few billion kilometers away. Fly through thick orange clouds and enjoy the methane lakes below.",
+      distance: "1.6 BIL. KM",
+      time: "7 YEARS",
+      image: "/destination/image-titan.png",
+    },
+  };
+
+  const current = destinations[planet];
+
   return (
-    <Box
-      sx={{ backgroundImage: 'url(https://img.freepik.com/premium-photo/futuristic-electonical-technology-ai-concept-art_784842-1020.jpg)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-            minHeight: '100vh',
-            p: { xs: 1, md: 20 },
-            display: 'flex',
-            alignItems: 'center',
-         }} >
-      <Grid container spacing={8}>
+    <main
+      className="destination"
+      style={{
+        backgroundImage: `url(/destination/background-destination-desktop.jpg)`,
+      }}
+    >
+      {/* NAVBAR */}
+      <nav className="navbar">
+        <ul>
+          <li>00 HOME</li>
+          <li className="active">01 DESTINATION</li>
+          <li>02 CREW</li>
+          <li>03 TECHNOLOGY</li>
+        </ul>
+      </nav>
 
-        {/* Left Column */}
-        <Grid item xs={12} md={6}>
-          <Box
-            sx={{ display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  height: '100%',
-                  px: { xs: 4, md: 2 },
-               }} >
-            <Box sx={{ maxWidth: 600, width: '100%' }}>
-              <Typography variant="h4"
-                sx={{ color: '#F5F7FA',
-                      mt: { xs: 14, md: 10 },
-                      mb: { xs: 3.5, md: 4 },
-                      fontFamily: 'Impact, sans-serif',
-                      fontSize: { xs: '33px', md: '60px' },
-                      textAlign: { xs: 'center', md: 'left' },
-                      lineHeight: { xs: 1.3, md: 1 },
-                   }} >
-                Learn to code by watching others
-              </Typography>
+      {/* DESTINATION CONTENT */}
+      <div className="destination-content">
+        {/* LEFT SECTION */}
+        <div className="planet-section">
+          <h5>
+            <span>01</span> PICK YOUR DESTINATION
+          </h5>
+          <Image
+            src={current.image}
+            alt={current.name}
+            width={445}
+            height={445}
+            className="planet-img"
+            priority
+          />
+        </div>
 
-              <Typography variant="body1"
-                sx={{ color: '#FFFFFF',
-                      fontSize: { xs: '19.5px', md: '21.9px' },
-                      lineHeight: 1.4,
-                      fontWeight: 500,
-                      fontFamily: 'Poppins, sans-serif',
-                      textAlign: { xs: 'center', md: 'left' },
-                      mb: { xs: 8, md: 15 },
-                   }} >
-                See how experienced developers solve problems in real-time.
-                Watching scripted tutorials is great, but understanding how
-                developers think is invaluable.
-              </Typography>
-            </Box>
-          </Box>
-        </Grid>
+        {/* RIGHT SECTION */}
+        <div className="info-section">
+          {/* Planet Tabs */}
+          <div className="tabs">
+            {Object.keys(destinations).map((key) => (
+              <button
+                key={key}
+                className={planet === key ? "active" : ""}
+                onClick={() => setPlanet(key as keyof typeof destinations)}
+              >
+                {destinations[key].name}
+              </button>
+            ))}
+          </div>
 
-        {/* Right Column */}
-        <Grid item xs={12} md={6}>
-          <Box display="flex" flexDirection="column" gap={2} alignItems="center">
-            <Button fullWidth
-              sx={{ maxWidth: { xs: '90%', md: 600 },
-                    width: '100%',
-                    height: { xs: 85, md: 60 },
-                    backgroundColor: '#C98E6A',
-                    color: 'white',
-                    py: { xs: 1.5, md: 2 },
-                    borderRadius: 1,
-                    fontWeight: 500,
-                    fontSize: { xs: '15px', md: '17px' },
-                    textAlign: 'center',
-                    fontFamily: 'Poppins, sans-serif',
-                    mb: 1,
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    lineHeight: 1.5,
-                    '&:hover': { backgroundColor: '#EADDC4' },
-                 }} >
-              <Box component="span">
-                <Box component="span" sx={{ fontWeight: 800 }}>
-                  Try it free 7 days
-                </Box>{' '}
-                then
-                <Box
-                  component="span"
-                  sx={{ display: { xs: 'block', md: 'inline' } }}
-                >
-                  {' '}
-                  $20/mo. thereafter
-                </Box>
-              </Box>
-            </Button>
+          {/* Planet Info */}
+          <h1>{current.name}</h1>
+          <p>{current.description}</p>
 
-            {/* Contact Form */}
-            <Box component="form" display="flex" flexDirection="column" gap={2.5}
-              sx={{ backgroundColor: '#E0E1E6',
-                    borderRadius: 2,
-                    p: { xs: 3.5, md: 4.5 },
-                    boxShadow: 24,
-                    maxWidth: { xs: '90%', md: 600 },
-                    height: { xs: 490, md: 500 },
-                    width: '100%',
-                    mb: { xs: 8, md: 3 },
-                 }} >
-              <TextField label="First Name" variant="outlined" fullWidth
-                InputLabelProps={{ sx: { fontWeight: 700 } }} />
-              <TextField label="Last Name" variant="outlined" fullWidth
-                InputLabelProps={{ sx: { fontWeight: 700 } }} />
-              <TextField label="Email Address" variant="outlined" fullWidth
-                InputLabelProps={{ sx: { fontWeight: 700 } }} />
-              <TextField label="Password" type="password" variant="outlined" fullWidth
-                InputLabelProps={{ sx: { fontWeight: 700 } }} />
-              <Button type="submit" variant="contained" fullWidth
-                sx={{ backgroundColor: '#C98E6A',
-                      color: 'white',
-                      fontWeight: 600,
-                      fontFamily: `'Montserrat', sans-serif`,
-                      py: { xs: 1.5, md: 1.8 },
-                      fontSize: { xs: '16px', sm: '18px' },
-                      mt: 1,
-                      '&:hover': { backgroundColor: '#EADDC4' },
-                   }} >
-                CLAIM YOUR FREE TRIAL
-              </Button>
-              <Typography variant="caption" align="center"
-                sx={{ fontSize: { xs: '12px', md: '14.4px' },
-                      fontWeight: 400,
-                      fontFamily: `'Poppins', sans-serif`,
-                      color: '#505050',
-                      display: 'block',
-                     lineHeight: 1.7,
-                   }} >
-                <Box component="span" sx={{ display: { xs: 'block', sm: 'inline' } }}>
-                  By clicking the button, you are agreeing to
-                </Box>{' '}
-                <Box component="span" sx={{ color: '#505050' }}>
-                  our{' '}
-                </Box>
-                <Box component="span" sx={{ color: 'red' }}>
-                  Terms and Services
-                </Box>
-              </Typography>
-            </Box>
-          </Box>
-        </Grid>
-      </Grid>
-    </Box>
+          <div className="divider"></div>
+
+          <div className="stats">
+            <div>
+              <h6>AVG. DISTANCE</h6>
+              <p>{current.distance}</p>
+            </div>
+            <div>
+              <h6>EST. TRAVEL TIME</h6>
+              <p>{current.time}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
   );
 }

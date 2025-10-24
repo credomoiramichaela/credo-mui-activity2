@@ -1,0 +1,151 @@
+
+/* ======= GLOBAL STYLING ======= */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ======= DESTINATION PAGE ===== */
+.destination {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  font-family: 'Barlow Condensed', sans-serif;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  /* Default (Desktop) background */
+  background-image: url('/destination/background-destination-desktop.jpg');
+}
+
+/* Mobile background */
+@media (max-width: 600px) {
+  .destination {
+    background-image: url('/destination/background-destination-mobile.jpg');
+  }
+}
+
+.destination-content {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5rem 12rem;
+}
+
+.planet-section {
+  text-align: center;
+}
+
+.planet-section h5 {
+  font-size: 1rem;
+  letter-spacing: 3px;
+  color: #d0d6f9;
+  text-transform: uppercase;
+}
+
+.planet-section img {
+  width: 170px;
+  height: 170px;
+  margin-top: 3rem;
+  object-fit: contain;
+  margin-inline: auto;
+  margin-bottom: 2rem;
+}
+
+/* Desktop */
+@media (min-width: 50em) {
+  .planet-section img {
+    width: 445px;
+    height: 445px;
+    margin-left: auto;
+    margin-inline: unset;
+    margin-bottom: unset;
+  }
+}
+
+.info-section {
+  max-width: 450px;
+}
+
+.tabs {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.tabs button {
+  background: none;
+  border: none;
+  color: #d0d6f9;
+  letter-spacing: 2px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.tabs button.active {
+  border-bottom: 2px solid white;
+  color: white;
+}
+
+.info-section h1 {
+  font-size: 6rem;
+  margin-bottom: 1rem;
+  font-family: 'Bellefair', serif;
+}
+
+.info-section p {
+  color: #d0d6f9;
+  line-height: 1.8;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.divider {
+  border-top: 1px solid #383b4b;
+  margin: 2rem 0;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.stats h6 {
+  font-size: 0.8rem;
+  color: #d0d6f9;
+  letter-spacing: 2px;
+}
+
+.stats p {
+  font-size: 1.5rem;
+  font-family: 'Bellefair', serif;
+}
+
+/* ===== Responsive (Destination) ===== */
+@media (max-width: 768px) {
+  .destination-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 3rem;
+  }
+
+  .planet-section img {
+    width: 200px;
+  }
+
+  .info-section h1 {
+    font-size: 4rem;
+  }
+
+  .stats {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
