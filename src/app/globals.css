@@ -1,0 +1,356 @@
+/* === NAVBAR === */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 4rem;
+  /* background: rgba(0, 0, 0, 0.2); */
+  /* backdrop-filter: blur(6px); */
+  position: absolute;
+  z-index: 10;
+  right: 0;
+  width: 100%;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+.nav-mobile-links {
+    display: none;
+    position: absolute;
+    background: rgb(255 255 255 / 95%);
+    text-align: center;
+    padding: 3rem 0;
+    top: 60px;
+    width: 250px;
+    right: 4rem;
+}
+
+.nav-mobile-links.show {
+    display: block;
+}
+
+.nav-links {
+  display: none;
+}
+
+.nav-links li a {
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+  color: #d0d6f9;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  color: white;
+}
+
+.nav-links li.active a {
+  border-bottom: 2px solid white;
+  color: white;
+}
+
+/* === HAMBURGER MENU === */
+.menu-toggle {
+  display: block;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 6px;
+  z-index: 20;
+}
+
+.menu-toggle span {
+     font-size: 20px;
+    padding: 5px 16px;
+    font-weight: bold;
+  background: white;
+  border-radius: 3px;
+  transition: 0.3s ease;
+}
+
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translateY(8px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-8px);
+}
+
+/* === HERO SECTION === */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url('/destination/background-home-desktop.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.hero-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.text-section {
+  max-width: 500px;
+}
+
+.text-section h5 {
+  font-size: 1rem;
+  letter-spacing: 3px;
+  color: #d0d6f9;
+  text-transform: uppercase;
+}
+
+.text-section h1 {
+  font-size: 9rem;
+  margin: 1rem 0;
+  font-family: 'Bellefair', serif;
+  color: white;
+}
+
+.text-section p {
+  color: #d0d6f9;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.explore-btn {
+  width: 200px;
+  height: 200px;
+   min-width: 200px;
+  min-height: 200px;
+  background: white;
+  border-radius: 50%;
+  color: black;
+  font-family: 'Bellefair', serif;
+  font-size: 1.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s ease;
+    margin-top: 3rem;
+    font-size: 1.1rem;
+}
+
+.explore-btn:hover {
+  box-shadow: 0 0 0 60px rgba(255, 255, 255, 0.1);
+}
+
+/* === DESTINATION SECTION === */
+.destination {
+  position: relative;
+  width: 100%;
+  background-image: url('/destination/background-destination-mobile.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.destination-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem 1rem;
+  padding-top: 10rem;
+  text-align: center;
+}
+
+.planet-section {
+  text-align: center;
+}
+
+.planet-section h5 {
+  font-size: 1rem;
+  letter-spacing: 3px;
+  color: #d0d6f9;
+  text-transform: uppercase;
+}
+
+.planet-img {
+  width: 170px;
+  height: 170px;
+  margin: 3rem auto 2rem;
+  object-fit: contain;
+}
+
+.tabs {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+  justify-content: center;
+}
+
+.tabs button {
+  background: none;
+  border: none;
+  color: #d0d6f9;
+  letter-spacing: 2px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.tabs button.active {
+  border-bottom: 2px solid white;
+  color: white;
+}
+
+.info-section {
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.info-section h1 {
+    color: white;
+  font-size: 6rem;
+  margin-bottom: 1rem;
+  font-family: 'Bellefair', serif;
+}
+
+.info-section p {
+  color: #d0d6f9;
+  line-height: 1.8;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.divider {
+  border-top: 1px solid #383b4b;
+  margin: 2rem 0;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  flex-direction: column;
+}
+
+.stats h6 {
+  font-size: 0.8rem;
+  color: #d0d6f9;
+  letter-spacing: 2px;
+}
+
+.stats p {
+  font-size: 1.5rem;
+  font-family: 'Bellefair', serif;
+}
+
+/* === RESPONSIVE STYLES === */
+@media (max-width: 1024px) {
+  .hero {
+    background-image: url('/destination/background-home-tablet.jpg');
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    background-image: url('/destination/background-home-mobile.jpg');
+  }
+}
+
+@media (max-width: 768px) {
+  
+  .nav-links {
+   
+  }
+
+  .nav-links.show {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  
+
+  .text-section h1 {
+    font-size: 5rem;
+  }
+
+  .explore-btn {
+  
+  }
+}
+
+@media (min-width: 992px) {
+  .destination {
+    height: 100vh;
+    background-image: url('/destination/background-destination-desktop.jpg');
+  }
+
+  .destination-content {
+    flex-direction: row;
+    justify-content: space-evenly;
+    text-align: left;
+    
+  }
+
+  .planet-img {
+    width: 445px;
+    height: 445px;
+    margin-left: auto;
+    margin-bottom: unset;
+  }
+
+  .tabs {
+  justify-content: left;
+}
+
+  .stats {
+    flex-direction: row;
+  }
+
+  .info-section {
+  margin: 0;
+}
+
+.hero-content {
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: left;
+  }
+
+  .navbar {
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(6px);
+  position: absolute;
+  z-index: 10;
+  right: 0;
+  width: unset;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 3rem;
+}
+.menu-toggle  {
+    display: none;
+}
+.logo{
+    display: none;
+}
+}
+
