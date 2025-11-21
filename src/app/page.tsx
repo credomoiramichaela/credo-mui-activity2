@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-
+import Link from 'next/link';
 
 export default function HomePage() {
  
@@ -22,7 +22,9 @@ export default function HomePage() {
               world experience!
             </p>
           </div>
+           <Link href="/destination" passHref>
           <div className="explore-btn">EXPLORE</div>
+           </Link>
         </div>
       </main>
 
